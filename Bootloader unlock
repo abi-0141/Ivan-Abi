@@ -1,0 +1,8 @@
+Turn ur phone to fastboot 
+Connect device to pc
+Open cmd from platform tool
+Type fastboot devices 
+Then type fastboot flashing unlock
+Now ur bootloader will be unlocked
+
+Only works on Android 11!
