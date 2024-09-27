@@ -1,0 +1,1 @@
+fastboot --disable-verity --disable-verification flash vbmeta vbmeta.img
