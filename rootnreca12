@@ -1,0 +1,58 @@
+rootnreca12:
+
+Here are the instructions.
+
+Step 1.
+Download and install DSU sideloader app from https://github.com/VegaBobo/DSU-Sideloader/releases
+
+Step 2.
+
+Download Lineage OS rooted GSI from https://sourceforge.net/projects/andyyan-gsi/files/lineage-19.x/lineage-19.1-20230611-UNOFFICIAL-arm64_bvS.img.xz/download
+
+Step 3. Download BROM.zip https://drive.google.com/file/d/1gHaHSwurXY6eM8i6XyQu33q49MeVR7xk/view?usp=drivesdk (to be flashed in recovery!)
+
+Step 4.
+
+Copy the modified boot image or custom recovery to /sdcard/ (note this must be redone since you don't share the original SDCard storage)
+
+Step 5.
+
+Open DSU sideloader app and install the downloaded GSI. 
+It will show some adb commands which you need to run using adb. 
+Once installation is complete you will get a notification to boot to GSI. Press restart to boot into lineage OS
+Once 
+When the initial setup is completed in lineage os, enable usb debugging and run 
+
+Step 6.
+
+'adb shell'
+in the adb shell run 'su'
+then run 'dd if=/dev/block/sdc49 of=/sdcard/boot.img; sync'
+
+Now you should have boot.img file in your phone
+Install magisk and patch the boot.img
+
+!!!!! NOTE !!!!!!
+
+Uncheck patch VBMETA in boot.img else you'll get stuck at boot!
+
+Step 7.
+
+For flashing boot use:
+
+'dd if=/sdcard/<patched boot file> of=/dev/block/sdc49; sync'
+
+Step 7.1
+
+For custom recovery use:
+
+'dd if=/sdcard/recovery.img of=/dev/block/by-name/recovery; sync
+
+To be safe on A12 after flashing recovery boot into BROM and flash BROM.zip
+
+https://drive.google.com/file/d/1gHaHSwurXY6eM8i6XyQu33q49MeVR7xk/view?usp=drivesdk
+
+Once it is complete you should have either root or custom recovery depending on what you selected to flash!
+
+You can discard the GSI boot from the notification, which will delete all the data of lineageOS
+On the side note, you can try out custom roms using DSU sideloader. you can have look at list of GSIs available at https://github.com/phhusson/treble_experimentations/wiki/Generic-System-Image-(GSI)-list.
